@@ -5,6 +5,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.myapplication.HomeFragment" />
+        android:label="Home"
+        android:name="com.example.myapplication.HomeFragment">
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@+id/detailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.myapplication.DetailFragment"
+        android:label="Detail" />
 
 </navigation>
