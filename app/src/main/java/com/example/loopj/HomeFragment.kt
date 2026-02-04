@@ -34,6 +34,10 @@ class HomeFragment : Fragment() {
 
     private fun getUsers() {
         val client = AsyncHttpClient()
+
+        client.addHeader("Accept", "application/json")
+        client.addHeader("User-agent", "Android")
+
         val url = "https://reqres.in/api/users?page=1"
 
         client.get(url, object : AsyncHttpResponseHandler() {
