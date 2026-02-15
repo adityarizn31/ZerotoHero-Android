@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_inputDatasFragment"
             app:destination="@id/inputDatasFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_datasFragment"
+            app:destination="@id/datasFragment" />
     </fragment>
     <fragment
         android:id="@+id/inputDatasFragment"
@@ -27,5 +30,9 @@
         android:id="@+id/datasFragment"
         android:name="com.example.myapplication.DatasFragment"
         android:label="fragment_datas"
-        tools:layout="@layout/fragment_datas" />
+        tools:layout="@layout/fragment_datas" >
+        <action
+            android:id="@+id/action_datasFragment_to_inputDatasFragment"
+            app:destination="@id/inputDatasFragment" />
+    </fragment>
 </navigation>

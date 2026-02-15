@@ -15,7 +15,7 @@ import androidx.core.text.isDigitsOnly
 class InputDatasFragment : Fragment(), View.OnClickListener {
 
     private var _binding : FragmentInputDatasBinding ?= null
-    private val binding = _binding!!
+    private val binding get() = _binding!!
 
     private lateinit var userModel: UserModel
 
