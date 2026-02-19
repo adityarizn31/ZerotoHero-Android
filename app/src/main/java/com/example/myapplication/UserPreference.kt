@@ -35,4 +35,10 @@ internal class UserPreference (context : Context) {
         return model
     }
 
+    fun clearUser() {
+        val editor = preferences.edit()
+        editor.clear()
+        editor.apply()
+    }
+
 }

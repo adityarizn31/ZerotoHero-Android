@@ -66,6 +66,19 @@ class InputDatasFragment : Fragment(), View.OnClickListener {
 
         requireActivity().title = actionBarTitle
         binding.btnSave.text = btnTitle
+
+        binding.btnReset.setOnClickListener {
+            val pref = UserPreference(requireContext())
+            pref.clearUser()
+
+            binding.edtName.setText("")
+            binding.edtEmail.setText("")
+            binding.edtAge.setText("")
+            binding.edtPhone.setText("")
+            binding.rgLoveNzull.clearCheck()
+
+            binding.btnSave.text = getString(R.string.save  )
+        }
     }
 
     private fun showPreferenInForm() {
