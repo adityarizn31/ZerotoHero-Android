@@ -13,7 +13,7 @@ class NoteAddUpdateFragment : Fragment() {
     private var _binding : FragmentNoteAddUpdateBinding ?= null
     private val binding get() = _binding!!
 
-    private var ieEdit = false
+    private var isEdit = false
     private var notes : Notes ?= null
     private var position : Int = 0
     private lateinit var noteHelper: NoteHelper
@@ -38,6 +38,39 @@ class NoteAddUpdateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        noteHelper = NoteHelper.getInstance(requireContext())
+        noteHelper.open()
+
+        notes = arguments?.getParcelable(EXTRA_NOTE)
+
+        if (notes != null) {
+            position = arguments?.getInt(EXTRA_POSITION, 0) ?: 0
+            isEdit = true
+        } else {
+            notes = Notes()
+        }
+
+        val actionBarTitle : String
+        var btnTitle : String
+
+        if (isEdit) {
+            actionBarTitle = "Ubah"
+            btnTitle = "Update"
+
+            notes?.let {
+                binding.edtTitle.setText(it.title)
+                binding.edtDescription.setText(it.description)
+            }
+
+        } else {
+            actionBarTitle = "Tambah"
+            btnTitle = "Simpan"
+        }
+
+        binding.btnSubmit.text = btnTitle
+
+        requireActivity().title = actionBarTitle
     }
 
     override fun onDestroyView() {
