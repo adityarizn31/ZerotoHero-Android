@@ -10,9 +10,9 @@ class DatabaseContract {
             const val TABLE_NAME = "note"
 
             const val _ID = "id"
-            const val title = "title"
-            const val description = "description"
-            const val date = "date"
+            const val TITLE = "title"
+            const val DESCRIPTION = "description"
+            const val DATE = "date"
         }
     }
 
