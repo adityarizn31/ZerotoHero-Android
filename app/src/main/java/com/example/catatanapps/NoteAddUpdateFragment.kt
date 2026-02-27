@@ -1,11 +1,19 @@
 package com.example.catatanapps
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
+import androidx.core.view.MenuProvider
 import com.example.catatanapps.databinding.FragmentNoteAddUpdateBinding
 import com.example.catatanapps.db.DatabaseContract
 import com.example.catatanapps.db.NoteHelper
@@ -76,6 +84,98 @@ class NoteAddUpdateFragment : Fragment(), View.OnClickListener {
         binding.btnSubmit.text = btnTitle
 
         requireActivity().title = actionBarTitle
+
+//      Digunakan untuk Menu
+        requireActivity().addMenuProvider(object : MenuProvider {
+
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                if (isEdit) {
+                    menuInflater.inflate(R.menu.menu_form, menu)
+                }
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+
+                    R.id.acDelete -> {
+                        val result = noteHelper.deleteById(notes?.id.toString())
+                        if (result > 0) {
+                            val bundle = Bundle().apply {
+                                putParcelable(EXTRA_NOTE, notes)
+                                putInt(EXTRA_POSITION, position)
+                                putInt("type", RESULT_DELETE)
+                            }
+
+                            parentFragmentManager.setFragmentResult("note_result", bundle)
+                            parentFragmentManager.popBackStack()
+                        }
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+
+        }, viewLifecycleOwner)
+
+//        Digunakan untuk onBackPressed
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    showAlertDialog(ALERT_DIALOG_CLOSE)
+                }
+
+                private fun showAlertDialog(type: Int) {
+                    val isDialogClose = type == ALERT_DIALOG_CLOSE
+                    val dialogTitle : String
+                    val dialogMessage : String
+
+                    if (isDialogClose) {
+                        dialogTitle = "Batal"
+                        dialogMessage = "Apakah anda ingin membatalkan ?"
+                    } else {
+                        dialogMessage = "Apakah anda ingin menghapus item ?"
+                        dialogTitle = "Hapus Note"
+                    }
+
+                    val alertDialogBuilder = AlertDialog.Builder(requireContext())
+
+                    alertDialogBuilder.setTitle(dialogTitle)
+                    alertDialogBuilder
+                        .setMessage(dialogMessage)
+                        .setCancelable(false)
+                        .setPositiveButton("Ya") { _, _ ->
+                            if (isDialogClose) {
+                                parentFragmentManager.popBackStack()
+                            } else {
+                                val result = noteHelper.deleteById(notes?.id.toString()).toLong()
+                                if (result > 0) {
+                                    val bundle = Bundle().apply {
+                                        putParcelable(EXTRA_NOTE, notes)
+                                        putInt(EXTRA_POSITION, position)
+                                        putInt("type", RESULT_DELETE)
+                                    }
+
+                                    parentFragmentManager.setFragmentResult("note_result", bundle)
+                                    parentFragmentManager.popBackStack()
+
+                                } else {
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Gagal menghapus data",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
+                        .setNegativeButton("Tidak") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                    alertDialogBuilder.create().show()
+                }
+            }
+        )
     }
 
     override fun onClick(view: View?) {
