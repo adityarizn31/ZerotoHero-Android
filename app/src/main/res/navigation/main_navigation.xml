@@ -9,5 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.catatanapps.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_noteAddUpdateFragment"
+            app:destination="@id/noteAddUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteAddUpdateFragment"
+        android:name="com.example.catatanapps.NoteAddUpdateFragment"
+        android:label="fragment_note_add_update"
+        tools:layout="@layout/fragment_note_add_update" />
 </navigation>
