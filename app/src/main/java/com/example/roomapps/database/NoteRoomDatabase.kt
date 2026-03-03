@@ -14,7 +14,7 @@ abstract class NoteRoomDatabase : RoomDatabase(){
         private var INSTANCE : NoteRoomDatabase ?= null
 
         @JvmStatic
-        fun database (context : Context) : NoteRoomDatabase {
+        fun getDatabase (context : Context) : NoteRoomDatabase {
             if (INSTANCE == null) {
                 synchronized(NoteRoomDatabase::class.java) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext, NoteRoomDatabase::class.java, "note_database")
