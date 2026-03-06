@@ -65,5 +65,8 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
 
+    implementation("androidx.navigation:navigation-fragment-ktx:2.9.7")
+    implementation("androidx.navigation:navigation-fragment:2.9.7")
+
 
 }
