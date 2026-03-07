@@ -7,4 +7,9 @@
     <string name="title">Title</string>
     <string name="submit">Submit</string>
     <string name="delete">Delete</string>
+
+    <string name="change">Ubah</string>
+    <string name="update">Update</string>
+    <string name="add">Tambah</string>
+    <string name="save">Simpan</string>
 </resources>

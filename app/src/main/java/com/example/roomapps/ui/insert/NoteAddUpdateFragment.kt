@@ -1,17 +1,23 @@
 package com.example.roomapps.ui.insert
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import com.example.roomapps.R
 import com.example.roomapps.database.Note
 import com.example.roomapps.databinding.FragmentNoteAddUpdateBinding
+import com.example.roomapps.helper.ViewModelFactory
 
 class NoteAddUpdateFragment : Fragment() {
 
     private var _binding : FragmentNoteAddUpdateBinding ?= null
     private val binding get() = _binding !!
+
+    lateinit var noteAddUpdateViewModel : NoteAddUpdateViewModel
 
     companion object {
         const val EXTRA_NOTE = "extra_note"
@@ -32,6 +38,42 @@ class NoteAddUpdateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        noteAddUpdateViewModel = obtainViewModel(requireContext())
+
+        note = arguments?.getParcelable(EXTRA_NOTE)
+
+        if (note != null) {
+            isEdit = true
+        } else {
+            note = Note()
+        }
+
+        val actionBarTitle : String
+        val btnTitle : String
+
+        if (isEdit) {
+            actionBarTitle = getString(R.string.change)
+            btnTitle = getString(R.string.update)
+
+            note?.let { note ->
+                binding.edtTitle.setText(note.title)
+                binding.edtDescription.setText(note.description)
+            }
+        } else {
+            actionBarTitle = getString(R.string.add)
+            btnTitle = getString(R.string.save)
+        }
+
+        activity?.title = actionBarTitle
+        binding.btnSubmit.text = btnTitle
+
+        
+    }
+
+    private fun obtainViewModel(requireContext: Context): NoteAddUpdateViewModel {
+        val factory = ViewModelFactory.getInstance(requireActivity().application)
+        return ViewModelProvider(this, factory).get(NoteAddUpdateViewModel::class.java)
     }
 
     override fun onDestroyView() {
