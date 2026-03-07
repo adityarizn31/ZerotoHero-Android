@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.roomapps.R
 import com.example.roomapps.database.Note
 import com.example.roomapps.databinding.FragmentNoteAddUpdateBinding
+import com.example.roomapps.helper.DateHelper
 import com.example.roomapps.helper.ViewModelFactory
 
 class NoteAddUpdateFragment : Fragment() {
@@ -68,7 +70,43 @@ class NoteAddUpdateFragment : Fragment() {
         activity?.title = actionBarTitle
         binding.btnSubmit.text = btnTitle
 
-        
+        binding?.btnSubmit?.setOnClickListener {
+            val title = binding?.edtTitle?.text.toString    ().trim()
+            val description = binding?.edtDescription?.text.toString().trim()
+
+            when {
+
+                title.isEmpty() -> {
+                    binding?.edtTitle?.error = getString(R.string.empty)
+                }
+
+                description.isEmpty() -> {
+                    binding?.edtDescription?.error = getString(R.string.empty)
+                }
+
+                else -> {
+                    note?.let {
+                        it.title = title
+                        it.description = description
+                    }
+
+                    if (isEdit) {
+                        noteAddUpdateViewModel.update(note as Note)
+                        showToast(getString(R.string.changed))
+                    } else {
+                        note?.date = DateHelper.getCurrentDate()
+                        noteAddUpdateViewModel.insert(note as Note)
+                        showToast(getString(R.string.added))
+                    }
+
+                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun obtainViewModel(requireContext: Context): NoteAddUpdateViewModel {
