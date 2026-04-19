@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- TITLE -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pendaftaran Kartu Tanda Penduduk"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Silakan lengkapi data berikut"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- NAMA KEPALA KELUARGA -->
+        <EditText
+            android:id="@+id/etNamaKK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Kepala Keluarga"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- NIK -->
+        <EditText
+            android:id="@+id/etNik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="NIK"
+            android:inputType="number"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- NO KK -->
+        <EditText
+            android:id="@+id/etNoKK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nomor Kartu Keluarga"
+            android:inputType="number"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ALAMAT -->
+        <EditText
+            android:id="@+id/etAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alamat Lengkap"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:minLines="3"/>
+
+        <!-- RT/RW -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etRT"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="RT"
+                android:inputType="number"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+
+            <EditText
+                android:id="@+id/etRW"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:hint="RW"
+                android:inputType="number"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <!-- DESA -->
+        <EditText
+            android:id="@+id/etDesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Desa / Kelurahan"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- KECAMATAN -->
+        <EditText
+            android:id="@+id/etKecamatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kecamatan"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- KABUPATEN -->
+        <EditText
+            android:id="@+id/etKabupaten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kabupaten / Kota"
+            android:background="@drawable/bg_input"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- UPLOAD FOTO KK -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Foto KK"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:background="#EEEEEE"/>
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Foto"
+            android:layout_marginTop="8dp"/>
+
+        <!-- SUBMIT BUTTON -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Daftarkan"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#E53935"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

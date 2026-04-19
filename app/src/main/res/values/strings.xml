@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- APP -->
+    <string name="app_name">SiLancar</string>
+
+    <!-- AUTH -->
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="logout">Keluar</string>
+
+    <!-- WELCOME -->
+    <string name="title_welcome_page">Selamat datang di SiLancar!</string>
+    <string name="message_welcome_page">Apa yang ingin Anda urus hari ini?</string>
+    <string name="sub_message_welcome">Silakan pilih layanan yang tersedia untuk memulai pengajuan.</string>
+
+    <!-- LOGIN -->
+    <string name="title_login_page">Masuk ke akun Anda</string>
+    <string name="message_login_page">Silakan masukkan email dan password Anda</string>
+
+    <!-- SIGNUP -->
+    <string name="title_signup_page">Lengkapi data diri Anda</string>
+    <string name="message_signup_page">Pastikan data yang Anda isi sudah benar</string>
+
+    <!-- FORM -->
+    <string name="name">Nama Lengkap</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <!-- MAIN -->
+    <string name="greeting">Selamat datang, %1$s 👋</string>
+    <string name="message_main_page">Silakan pilih layanan administrasi kependudukan yang tersedia.</string>
+
+    <!-- MENU LAYANAN -->
+    <string name="layanan">Layanan</string>
+    <string name="ktp">Pendaftaran KTP</string>
+    <string name="kk">Pendaftaran Kartu Keluarga</string>
+    <string name="akta_lahir">Akta Kelahiran</string>
+    <string name="akta_mati">Akta Kematian</string>
+
+    <!-- INFO -->
+    <string name="informasi">Informasi</string>
+    <string name="info_desc">Silakan lengkapi data dengan benar untuk mempercepat proses layanan.</string>
+
+    <!-- NOTIF / ALERT -->
+    <string name="success_register">Pendaftaran berhasil. Silakan login.</string>
+    <string name="error_login">Email atau password salah</string>
+    <string name="empty_field">Harap isi semua data</string>
+    <string name="isiinformasi">Silakan lengkapi data dengan benar untuk mempercepat proses layanan.</string>
+    <string name="silancar">SiLancar</string>
+
+</resources>
