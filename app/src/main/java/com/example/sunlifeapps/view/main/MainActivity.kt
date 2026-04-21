@@ -15,8 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sunlifeapps.R
 import com.example.sunlifeapps.data.pref.SilancarModel
 import com.example.sunlifeapps.databinding.ActivityMainBinding
+import com.example.sunlifeapps.databinding.ActivityPendaftaranKkBinding
 import com.example.sunlifeapps.view.ViewModelFactory
 import com.example.sunlifeapps.view.adapter.RecyclerviewAdapter
+import com.example.sunlifeapps.view.pelayanan.pendaftaranKK
+import com.example.sunlifeapps.view.pelayanan.pendaftaranKTP
 import com.example.sunlifeapps.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -47,18 +50,28 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     private fun setupRecycler() {
-        val recyclerView = findViewById<RecyclerView>(R.id.menuRecyclerView)
+        val recyclerView = binding.menuRecyclerView
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
         val menulist = listOf(
             SilancarModel("KTP", R.drawable.ic_ktp),
-            SilancarModel("KK", R.drawable.ic_ktp),
-            SilancarModel("Akta Kelahiran", R.drawable.ic_ktp),
-            SilancarModel("Kartu Identitas Anak / KIA", R.drawable.ic_ktp),
-            SilancarModel("Surat Pindah Datang Provinsi", R.drawable.ic_ktp),
+            SilancarModel("KK", R.drawable.ic_kk),
+            SilancarModel("Akta Kelahiran", R.drawable.ic_aktalahir),
+            SilancarModel("Kartu Identitas Anak / KIA", R.drawable.ic_kia),
         )
 
-        recyclerView.adapter = RecyclerviewAdapter(menulist)
+        val adapter = RecyclerviewAdapter(menulist) { item ->
+            when(item.title) {
+                "KTP" -> {
+                    startActivity(Intent(this, pendaftaranKTP::class.java))
+                }
+                "KK" -> {
+                    startActivity(Intent(this, pendaftaranKK::class.java))
+                }
+            }
+        }
+
+        recyclerView.adapter = adapter
     }
 }
 

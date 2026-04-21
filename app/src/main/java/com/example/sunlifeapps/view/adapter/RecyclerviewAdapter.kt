@@ -13,7 +13,8 @@ import com.example.sunlifeapps.data.pref.SilancarModel
 
 
 class RecyclerviewAdapter(
-    private val list: List<SilancarModel>
+    private val list: List<SilancarModel>,
+    private val onClick: (SilancarModel) -> Unit
 ) : RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
 
     class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,13 +35,14 @@ class RecyclerviewAdapter(
         holder.txtMenu.text = item.title
         holder.icon.setImageResource(item.icon)
 
-//        Digunakan untuk item click
-//        holder.itemView.setOnClickListener {
-//            onClick(item)
-//        }
+// 🔥 INI YANG PENTING
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, item.title, Toast.LENGTH_SHORT).show()
+            onClick(item)
         }
+
+//        holder.itemView.setOnClickListener {
+//            Toast.makeText(holder.itemView.context, item.title, Toast.LENGTH_SHORT).show()
+//        }
     }
 
     override fun getItemCount(): Int = list.size
