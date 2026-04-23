@@ -1,26 +1,17 @@
 package com.example.sunlifeapps.view.main
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.sunlifeapps.R
 import com.example.sunlifeapps.data.pref.SilancarModel
 import com.example.sunlifeapps.databinding.ActivityMainBinding
-import com.example.sunlifeapps.databinding.ActivityPendaftaranKkBinding
 import com.example.sunlifeapps.view.ViewModelFactory
 import com.example.sunlifeapps.view.adapter.RecyclerviewAdapter
-import com.example.sunlifeapps.view.pelayanan.pendaftaranKK
-import com.example.sunlifeapps.view.pelayanan.pendaftaranKTP
-import com.example.sunlifeapps.view.welcome.WelcomeActivity
+import com.example.sunlifeapps.view.pelayanan.PendaftaranKK
+import com.example.sunlifeapps.view.pelayanan.PendaftaranKTP
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,10 +54,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = RecyclerviewAdapter(menulist) { item ->
             when(item.title) {
                 "KTP" -> {
-                    startActivity(Intent(this, pendaftaranKTP::class.java))
+                    startActivity(Intent(this, PendaftaranKTP::class.java))
                 }
                 "KK" -> {
-                    startActivity(Intent(this, pendaftaranKK::class.java))
+                    startActivity(Intent(this, PendaftaranKK::class.java))
                 }
             }
         }

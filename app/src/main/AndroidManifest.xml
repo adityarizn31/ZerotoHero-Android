@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SunLifeApps">
         <activity
-            android:name=".view.pelayanan.pendaftaranKK"
-            android:exported="false" />
+            android:name=".view.pelayanan.PendaftaranKK"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".view.pelayanan.pendaftaranKTP"
+            android:name=".view.pelayanan.PendaftaranKTP"
             android:exported="false" />
         <activity
             android:name=".view.welcome.WelcomeActivity"

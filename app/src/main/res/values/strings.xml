@@ -47,5 +47,20 @@
     <string name="empty_field">Harap isi semua data</string>
     <string name="isiinformasi">Silakan lengkapi data dengan benar untuk mempercepat proses layanan.</string>
     <string name="silancar">SiLancar</string>
+    <string name="lengkapi_data">Lengkapi data dengan benar untuk mempercepat proses pelayanan</string>
+    <string name="pendaftaran_ktp">Pendaftaran KTP</string>
+    <string name="data_diri">Data Diri</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="nik">NIK</string>
+    <string name="tempat_lahir">Tempat Lahir</string>
+    <string name="alamat">Alamat</string>
+    <string name="alamat_lengkap">Alamat Lengkap</string>
+    <string name="rt">RT</string>
+    <string name="rw">RW</string>
+    <string name="desa_kelurahan">Desa / Kelurahan</string>
+    <string name="kecamatan">Kecamatan</string>
+    <string name="kabupaten_kota">Kabupaten / Kota</string>
+    <string name="upload_foto_ktp">Upload Foto KTP</string>
+    <string name="pastikan_foto_terlihat_jelas_dan_tidak_blur">Pastikan foto terlihat jelas dan tidak blur</string>
 
 </resources>

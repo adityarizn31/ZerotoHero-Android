@@ -16,20 +16,19 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.sunlifeapps.databinding.ActivityPendaftaranKtpBinding
 import com.example.sunlifeapps.view.utils.KtpValidation
 
-
-    class pendaftaranKTP : AppCompatActivity() {
+class PendaftaranKTP : AppCompatActivity() {
 
     private lateinit var binding : ActivityPendaftaranKtpBinding
 
     private var imageUri : Uri ?= null
 
-        private val galleryLaucher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            if (uri != null) {
-                imageUri = uri
-                binding.imgPreview.setImageURI(uri)
-                updateButtonState()
-            }
+    private val galleryLaucher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri != null) {
+            imageUri = uri
+            binding.imgPreview.setImageURI(uri)
+            updateButtonState()
         }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +46,6 @@ import com.example.sunlifeapps.view.utils.KtpValidation
         setupDatePicker()
         setupValidation()
         setupAction()
-
-        updateButtonState()
     }
 
         private fun updateButtonState() {

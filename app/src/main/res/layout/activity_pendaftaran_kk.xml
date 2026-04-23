@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F6FA">
+    android:fillViewport="true"
+    android:background="#F4F6F9">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,157 +12,275 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- TITLE -->
+        <!-- HEADER -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pendaftaran Kartu Tanda Penduduk"
-            android:textSize="20sp"
+            android:text="@string/pendaftaran_ktp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#212121"/>
+            android:textColor="#212121"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Silakan lengkapi data berikut"
+            android:text="@string/lengkapi_data"
             android:textSize="14sp"
             android:textColor="#757575"
+            android:lineSpacingExtra="2dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- NAMA KEPALA KELUARGA -->
-        <EditText
-            android:id="@+id/etNamaKK"
+        <!-- CARD DATA DIRI -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama Kepala Keluarga"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"/>
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
 
-        <!-- NIK -->
-        <EditText
-            android:id="@+id/etNik"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="NIK"
-            android:inputType="number"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- NO KK -->
-        <EditText
-            android:id="@+id/etNoKK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nomor Kartu Keluarga"
-            android:inputType="number"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- ALAMAT -->
-        <EditText
-            android:id="@+id/etAlamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Alamat Lengkap"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:minLines="3"/>
-
-        <!-- RT/RW -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/etRT"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="RT"
-                android:inputType="number"
-                android:background="@drawable/bg_input"
-                android:padding="12dp"/>
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <EditText
-                android:id="@+id/etRW"
-                android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/data_diri"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- NAMA -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nama_lengkap"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- NIK -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nik"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- TEMPAT LAHIR -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTempatLahir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tempat_lahir"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- TANGGAL LAHIR -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTanggalLahir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tanggal Lahir"
+                        android:focusable="false"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CARD ALAMAT -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:hint="RW"
-                android:inputType="number"
-                android:background="@drawable/bg_input"
-                android:padding="12dp"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <!-- DESA -->
-        <EditText
-            android:id="@+id/etDesa"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alamat"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- ALAMAT -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAlamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/alamat"
+                        android:minLines="3"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- RT RW -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/rt"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRW"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/rw"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- DESA -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDesa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/desa_kelurahan"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- KECAMATAN -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etKecamatan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/kecamatan"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- KABUPATEN -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etKabupaten"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/kabupaten_kota"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- UPLOAD -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Desa / Kelurahan"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
 
-        <!-- KECAMATAN -->
-        <EditText
-            android:id="@+id/etKecamatan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Kecamatan"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginTop="12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <!-- KABUPATEN -->
-        <EditText
-            android:id="@+id/etKabupaten"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Kabupaten / Kota"
-            android:background="@drawable/bg_input"
-            android:padding="12dp"
-            android:layout_marginTop="12dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_foto_ktp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121"
+                    android:layout_marginBottom="8dp"/>
 
-        <!-- UPLOAD FOTO KK -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Upload Foto KK"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pastikan_foto_terlihat_jelas_dan_tidak_blur"
+                    android:textSize="12sp"
+                    android:textColor="#9E9E9E"
+                    android:layout_marginBottom="8dp"/>
 
-        <ImageView
-            android:id="@+id/imgPreview"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="centerCrop"
-            android:background="#EEEEEE"/>
+                <ImageView
+                    android:id="@+id/imgPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="#EEEEEE"
+                    android:scaleType="centerCrop"/>
 
-        <Button
-            android:id="@+id/btnUpload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pilih Foto"
-            android:layout_marginTop="8dp"/>
+                <Button
+                    android:id="@+id/btnUpload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Foto"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <!-- SUBMIT BUTTON -->
+        <!-- SUBMIT -->
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Daftarkan"
+            android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:backgroundTint="#E53935"
+            android:backgroundTint="#D32F2F"
             android:layout_marginTop="20dp"/>
 
     </LinearLayout>
-
 </ScrollView>
