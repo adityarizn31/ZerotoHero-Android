@@ -32,7 +32,7 @@ class PendaftaranKTP : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
 
         binding = ActivityPendaftaranKtpBinding.inflate(layoutInflater)
         setContentView(binding.root)
